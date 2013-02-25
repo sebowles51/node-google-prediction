@@ -73,6 +73,9 @@ I assume you have read and have a good understanding of all that is covered in [
 ```
 **Hint:** Look at test/system/testClient.js for further usage/implementation details.
 
+## Setting timeouts
+You can pass in a timeout in milliseconds to the module for the request to Google Prediction API.
+
 ## Running tests
 Due to the nature of the Google Prediction API, in order to run tests you will need to provide some details withing
 config/config.js. This is so you can provide your own Service Account details and test your own trained models.
