@@ -76,6 +76,28 @@ I assume you have read and have a good understanding of all that is covered in [
 ## Setting timeouts
 You can pass in a timeout in milliseconds to the module for the request to Google Prediction API.
 
+```js
+    var Client = require('node-google-prediction');
+    var client = new Client({claimSetISS        : //The Service Account email. Check your Gogole Console -> API Access,
+                             pemPath            : //Absolute or relative path to the service account private key (in .pem format - Details below on how to convert from .pk12 to .pem)
+                             modelInsertFields  : //Defaults are provided in config/config.js but you may want to provide different ones
+                            });
+
+    ...
+    SomeModule.someFunction = function(cb) {
+
+      // get prediction with 10 second timeout
+      var predictOptions = {
+        id: 'modelID',
+        token: ...,
+        body: ...,
+        timeout: 10000
+      }
+      client.predict(predictOptions, cb);
+    }
+
+```
+
 ## Running tests
 Due to the nature of the Google Prediction API, in order to run tests you will need to provide some details withing
 config/config.js. This is so you can provide your own Service Account details and test your own trained models.
